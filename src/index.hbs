@@ -11,8 +11,10 @@
         <![endif]-->
     </head>
     <body>
-        {{> header title=htmlWebpackPlugin.options.title}}
-        {{> main}}
-        {{> footer}}
+        {{> p-header title="Web page title"}}
+        {{#> p-main}}
+            <p>Title of main</p>
+        {{/p-main}}
+        {{> p-footer}}
     </body>
 </html>
