@@ -3,24 +3,29 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
+const glob = require('glob');
 module.exports = {
     entry: {
         bundle: './src/app.js'
     } ,
     output: {
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '/dist')
     },
     devtool: isDevelopment && "source-map",
     devServer: {
         port: 3000,
         open: true,
-        contentBase: path.join(__dirname, "../src"),
+        contentBase: path.join(__dirname, "/src"),
     },
     module: {
         rules: [
-            { test: /\.hbs$/, loader: "handlebars-loader" },
+            {   test: /\.hbs$/,
+                loader: "handlebars-loader",
+                options: {
+                    partialDirs: [path.resolve(__dirname, 'src', 'common')].concat(glob.sync('**/', { cwd: path.resolve(__dirname, 'src', 'common'), realpath: true }))
+                }
+            },
             {
                 test: /\.(scss|css)$/,
                 use: [
@@ -29,7 +34,6 @@ module.exports = {
                         loader: "css-loader",
                         options: {
                             sourceMap: isDevelopment,
-                            minimize: !isDevelopment
                         }
                     },
                     {
