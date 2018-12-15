@@ -23,7 +23,7 @@ module.exports = {
             {   test: /\.hbs$/,
                 loader: "handlebars-loader",
                 options: {
-                    partialDirs: [path.resolve(__dirname, 'src', 'common')].concat(glob.sync('**/', { cwd: path.resolve(__dirname, 'src', 'common'), realpath: true }))
+                    partialDirs: [path.resolve(__dirname, 'src')].concat(glob.sync('**/', { cwd: path.resolve(__dirname, 'src'), realpath: true }))
                 }
             },
             {

@@ -1,8 +1,8 @@
 <main class="p-main">
-    <div>
-        {{> @partial-block }}
-    </div>
-    <div>
-        <img src="../../assets/img/html5.jpg">
-    </div>
+    {{#> p-content-block}}
+        {{#> p-wrapper}}
+            {{> @partial-block }}
+        {{/p-wrapper}}
+        <img style="width: 100%" src="../../assets/img/html5.jpg">
+    {{/p-content-block}}
 </main>
