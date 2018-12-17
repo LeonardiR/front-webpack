@@ -7,10 +7,12 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const glob = require('glob');
 module.exports = {
     entry: {
-        bundle: './src/app.js'
+        landing: './src/templates/landing/landing.js',
+        page: './src/templates/page/page.js'
     } ,
     output: {
-        path: path.resolve(__dirname, '/dist')
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'js/[name].js'
     },
     devtool: isDevelopment && "source-map",
     devServer: {
@@ -63,7 +65,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'static/',
+                            outputPath: 'dist',
                             useRelativePath: true,
                         }
                     },
@@ -105,14 +107,21 @@ module.exports = {
         }),
 
         new HtmlWebpackPlugin({
-            title: 'Webpack front-end starter project',
-            template: './src/index.hbs',
+            title: 'This is the landing',
+            filename: 'index.html',
+            template: './src/templates/landing/t-landing.hbs',
+            chunks: ['landing'],
             minify: !isDevelopment && {
-                html5: true,
-                collapseWhitespace: true,
-                caseSensitive: true,
-                removeComments: true,
-                removeEmptyElements: true
+                html5: true
+            },
+        }),
+        new HtmlWebpackPlugin({
+            title: 'This is a avergage Page',
+            filename: 'page/index.html',
+            template: './src/templates/page/t-page.hbs',
+            chunks: ['page'],
+            minify: !isDevelopment && {
+                html5: true
             },
         })
     ]

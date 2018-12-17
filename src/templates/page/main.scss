@@ -1,0 +1,17 @@
+/* Foundations */
+
+@import "../../foundations/main";
+
+/* Components */
+
+@import "../../patterns/main";
+@import "../../common/main";
+
+.t-page {
+  .p-img{
+    width: 50%;
+    img{
+      width: 100%;
+    }
+  }
+}

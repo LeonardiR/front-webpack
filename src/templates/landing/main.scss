@@ -1,0 +1,17 @@
+/* Foundations */
+
+@import "../../foundations/main";
+
+/* Components */
+
+@import "../../patterns/main";
+@import "../../common/main";
+
+.t-landing {
+  .p-img {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
