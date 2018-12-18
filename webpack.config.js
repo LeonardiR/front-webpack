@@ -14,6 +14,12 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js'
     },
+    resolve: {
+        alias: {
+            Widgets: path.resolve(__dirname, 'src/widgets'),
+            Assets: path.resolve(__dirname, 'src/assets')
+        }
+    },
     devtool: isDevelopment && "source-map",
     devServer: {
         port: 3000,
