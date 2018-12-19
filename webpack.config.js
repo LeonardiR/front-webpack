@@ -17,7 +17,7 @@ module.exports = {
     resolve: {
         alias: {
             Widgets: path.resolve(__dirname, 'src/widgets'),
-            Assets: path.resolve(__dirname, 'src/_assets')
+            Assets: path.resolve(__dirname, 'src/assets')
         }
     },
     devtool: isDevelopment && "source-map",
@@ -48,7 +48,8 @@ module.exports = {
                         loader: "postcss-loader",
                         options: {
                             autoprefixer: {
-                                browsers: ["last 2 versions"]
+                                browsers: ["last 2 versions"],
+                                grid: true
                             },
                             sourceMap: isDevelopment,
                             plugins: () => [
@@ -65,7 +66,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif|svg)$/,
+                test: /\.(jpg|png|gif|svg|woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [
                     {
                         loader: "file-loader",
