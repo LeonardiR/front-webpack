@@ -1,0 +1,35 @@
+/* FONTS */
+$path-to-fonts: '/assets' !default;
+
+/* Regular */
+@font-face {
+  font-family: MaisonNeue-Book;
+  src: url('#{$path-to-fonts}/fonts/MaisonNeue-Book.woff2') format('woff2'), /* Super Modern Browsers */
+  url('#{$path-to-fonts}/fonts/MaisonNeue-Book.woff') format('woff'), /* Pretty Modern Browsers */
+  url('#{$path-to-fonts}/fonts/MaisonNeue-Book.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+/* Italic */
+@font-face {
+  font-family: MaisonNeue-Book-I;
+  src: url('#{$path-to-fonts}/fonts/MaisonNeue-BookItalic.woff2') format('woff2'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-BookItalic.woff') format('woff'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-BookItalic.ttf')  format('truetype');
+  font-style: italic;
+}
+/* Italic Bold */
+@font-face {
+  font-family: MaisonNeue-Bold-I;
+  src: url('#{$path-to-fonts}/fonts/MaisonNeue-BoldItalic.woff2') format('woff2'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-BoldItalic.woff') format('woff'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-BoldItalic.ttf')  format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+/* Bold */
+@font-face {
+  font-family: MaisonNeue-Bold;
+  src: url('#{$path-to-fonts}/fonts/MaisonNeue-Bold.woff2') format('woff2'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-Bold.woff') format('woff'),
+  url('#{$path-to-fonts}/fonts/MaisonNeue-Bold.ttf')  format('truetype');
+  font-weight: bold;
+}

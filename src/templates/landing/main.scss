@@ -1,5 +1,5 @@
 /* Foundations */
-
+@import "../../_foundations/fonts";
 @import "../../_foundations/main";
 
 /* Components */
@@ -8,10 +8,7 @@
 @import "../../common/main";
 
 .t-landing {
-  .p-img {
-    width: 100%;
-    img {
-      width: 100%;
-    }
+  p{
+    font-family: MaisonNeue-Bold-I;
   }
 }

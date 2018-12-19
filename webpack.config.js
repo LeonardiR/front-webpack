@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
@@ -7,6 +8,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const glob = require('glob');
 module.exports = {
     entry: {
+        assets:'./src/assets.js',
         landing: './src/templates/landing/landing.js',
         page: './src/templates/page/page.js'
     } ,
@@ -48,12 +50,11 @@ module.exports = {
                         loader: "postcss-loader",
                         options: {
                             autoprefixer: {
-                                browsers: ["last 2 versions"],
-                                grid: true
+                                browsers: ["last 2 versions"]
                             },
                             sourceMap: isDevelopment,
                             plugins: () => [
-                                autoprefixer
+                                autoprefixer({ grid: true })
                             ]
                         },
                     },
@@ -66,14 +67,27 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif|svg|woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(woff|woff2|ttf|eot)$/,
                 use: [
                     {
                         loader: "file-loader",
                         options: {
                             name: '[name].[ext]',
                             outputPath: 'dist',
-                            useRelativePath: true,
+                            useRelativePath: true
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: "file-loader",
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'dist',
+                            useRelativePath: true
                         }
                     },
                     {
@@ -103,6 +117,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin('dist', {} ),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
@@ -117,7 +132,7 @@ module.exports = {
             title: 'This is the landing',
             filename: 'index.html',
             template: './src/templates/landing/t-landing.hbs',
-            chunks: ['landing'],
+            chunks: ['assets','landing'],
             minify: !isDevelopment && {
                 html5: true
             },
@@ -126,7 +141,7 @@ module.exports = {
             title: 'This is a avergage Page',
             filename: 'page/index.html',
             template: './src/templates/page/t-page.hbs',
-            chunks: ['page'],
+            chunks: ['assets','page'],
             minify: !isDevelopment && {
                 html5: true
             },
