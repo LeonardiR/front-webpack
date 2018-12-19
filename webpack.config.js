@@ -17,7 +17,7 @@ module.exports = {
     resolve: {
         alias: {
             Widgets: path.resolve(__dirname, 'src/widgets'),
-            Assets: path.resolve(__dirname, 'src/assets')
+            Assets: path.resolve(__dirname, 'src/_assets')
         }
     },
     devtool: isDevelopment && "source-map",
@@ -65,7 +65,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test: /\.(jpg|png|gif|svg)$/,
                 use: [
                     {
                         loader: "file-loader",
