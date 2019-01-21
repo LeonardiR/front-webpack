@@ -8,7 +8,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const glob = require('glob');
 module.exports = {
     entry: {
-        assets:'./src/assets.js',
+        main:'./src/main.js',
         landing: './src/templates/landing/landing.js',
         page: './src/templates/page/page.js'
     } ,
@@ -129,7 +129,7 @@ module.exports = {
             title: 'This is the landing',
             filename: 'index.html',
             template: './src/templates/landing/t-landing.hbs',
-            chunks: ['assets','landing'],
+            chunks: ['main','landing'],
             minify: !isDevelopment && {
                 html5: true
             },
@@ -138,7 +138,7 @@ module.exports = {
             title: 'This is a avergage Page',
             filename: 'page/index.html',
             template: './src/templates/page/t-page.hbs',
-            chunks: ['assets','page'],
+            chunks: ['main','page'],
             minify: !isDevelopment && {
                 html5: true
             },

@@ -1,3 +1,7 @@
+/*Main styles*/
+import './main.scss';
+/*Assets*/
+
 import 'Assets/fonts/MaisonNeue-Bold.ttf';
 import 'Assets/fonts/MaisonNeue-Bold.woff';
 import 'Assets/fonts/MaisonNeue-Bold.woff2';

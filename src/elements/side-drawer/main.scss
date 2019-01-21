@@ -1,0 +1,72 @@
+.e-drawer{
+  height: 100vh;
+  width: 400px;
+  position: fixed;
+  background-color: darkgrey;
+  z-index: 5;
+  top: 0;
+
+  &.e-drawer--left{
+    left: 0;
+  }
+  &.e-drawer--right{
+    right: 0;
+  }
+}
+.e-drawer__toggle-btn{
+  position: absolute;
+  z-index: 10;
+  display: block;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  span{
+    position: absolute;
+    top: 50%;
+    display: block;
+    height: 2px;
+    background-color: black;
+    transition: background 0s .3s;
+    width: 100%;
+
+    &:before, &:after{
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background-color: black;
+    }
+    &:before{
+      top: -13px;
+      transition: top .3s .3s, transform .3s 0s;
+    }
+    &:after{
+      bottom: -13px;
+      transition: bottom .3s .3s, transform .3s 0s;
+    }
+  }
+
+  &.e-drawer__toggle-btn--opened{
+    span{
+      background: 0;
+
+      &:before{
+        top: 0;
+        transform: rotate(45deg);
+        transition: top .3s 0s, transform .3s .3s;
+      }
+
+      &:after{
+        bottom: 0;
+        transform: rotate(-45deg);
+        transition: bottom .3s 0s, transform .3s .3s;
+      }
+    }
+  }
+}

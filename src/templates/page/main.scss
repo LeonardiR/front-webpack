@@ -1,13 +1,3 @@
-/* Foundations */
-@import "../../_foundations/fonts";
-@import "../../_foundations/main";
-
-
-/* Components */
-
-@import "../../patterns/main";
-@import "../../common/main";
-
 .t-page {
   .p-grid{
     grid-column-gap: 5px;
