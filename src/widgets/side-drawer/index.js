@@ -1,4 +1,5 @@
 (function () {
+    "use strict";
     function SideDrawer() {
         this.drawer = document.querySelectorAll('.e-drawer');
         this.drawerBtn = document.querySelectorAll('.e-drawer__toggle-btn');
