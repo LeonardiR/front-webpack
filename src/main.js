@@ -1,7 +1,8 @@
 /*Main styles*/
 import './main.scss';
+/*Widgets*/
+import 'Widgets/side-drawer';
 /*Assets*/
-
 import 'Assets/fonts/MaisonNeue-Bold.ttf';
 import 'Assets/fonts/MaisonNeue-Bold.woff';
 import 'Assets/fonts/MaisonNeue-Bold.woff2';

@@ -1,4 +1,6 @@
-<div class="e-drawer e-drawer--{{side}}">
-    {{> @partial-block }}
+<div class="e-drawer e-drawer--{{side}} e-drawer-{{drawer-name}}" id="{{drawer-id}}">
+    <div class="e-drawer__content">
+        {{> @partial-block }}
+    </div>
 </div>
-<div class="e-drawer__toggle-btn"><span></span></div>
+<div class="e-drawer__toggle-btn e-drawer__toggle-btn--{{side}} e-drawer__toggle-btn-{{drawer-name}}" data-drawer="{{drawer-id}}"><span></span></div>

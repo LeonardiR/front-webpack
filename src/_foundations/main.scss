@@ -1,9 +1,14 @@
+@import "fonts";
 body{
   font-family: MaisonNeue-Book;
   margin: 0;
   padding: 0;
   height: auto;
+  color: $brand-color--dark-grey;
 }
 img{
   width: 100%;
+}
+a{
+  color: $brand-color--dark-grey;
 }

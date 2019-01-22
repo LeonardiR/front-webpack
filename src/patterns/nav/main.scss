@@ -1,0 +1,35 @@
+.p-nav{
+  .p-nav__list{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: center;
+    .p-nav__list-item{
+      &:not(:last-child){
+        margin-right: 20px;
+      }
+      a{
+        text-decoration: none;
+      }
+    }
+    &.p-nav__list--left{
+      justify-content: flex-start;
+    }
+    &.p-nav__list--right{
+      justify-content: flex-end;
+    }
+  }
+}
+
+/*Side menu*/
+
+.e-drawer{
+  .p-nav{
+    .p-nav__list{
+      display: block;
+      .p-nav__list-item{
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

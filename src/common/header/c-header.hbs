@@ -1,17 +1,7 @@
 <header class="c-header">
     {{#> p-wrapper}}
-        <h1 class="p-title">{{title}}</h1>
-    {{#> e-drawer side='right'}}
-        <nav class="p-nav">
-            <ul class="p-nav__list">
-                <li class="p-nav__list-item">
-                    <a href="/">Landing</a>
-                </li>
-                <li class="p-nav__list-item">
-                    <a href="/page">Page</a>
-                </li>
-            </ul>
-        </nav>
-    {{/e-drawer}}
+        {{#> e-drawer drawer-name='menu' side='right' drawer-id='drawer-menu'}}
+            {{> p-nav side='left'}}
+        {{/e-drawer}}
     {{/p-wrapper}}
 </header>
