@@ -1,4 +1,8 @@
-<nav class="p-nav">
+<nav class="p-nav
+    {{#if fixed}}
+        p-nav--fixed
+        p-nav--fixed-{{side}}
+    {{/if}}">
     <ul class="p-nav__list p-nav__list--{{side}}">
         <li class="p-nav__list-item">
             <a href="/">Landing</a>

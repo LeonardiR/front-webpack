@@ -1,4 +1,15 @@
 .p-nav{
+  &.p-nav--fixed{
+    position: fixed;
+    top: 10px;
+
+    &.p-nav--fixed-left{
+      left:40px;
+    }
+    &.p-nav--fixed-right{
+      right:40px;
+    }
+  }
   .p-nav__list{
     list-style: none;
     display: flex;
