@@ -62,11 +62,11 @@
     }
     &:before{
       top: -13px;
-      transition: top .3s .3s, transform .3s 0s;
+      transition: top .3s .3s, transform .3s 0s, background-color .3s .3s;
     }
     &:after{
       bottom: -13px;
-      transition: bottom .3s .3s, transform .3s 0s;
+      transition: bottom .3s .3s, transform .3s 0s, background-color .3s .3s;
     }
   }
 
@@ -77,13 +77,15 @@
       &:before{
         top: 0;
         transform: rotate(45deg);
-        transition: top .3s 0s, transform .3s .3s;
+        background-color: $brand-color--light-grey;
+        transition: top .3s 0s, transform .3s .3s, background-color .3s .3s;
       }
 
       &:after{
         bottom: 0;
         transform: rotate(-45deg);
-        transition: bottom .3s 0s, transform .3s .3s;
+        background-color: $brand-color--light-grey;
+        transition: bottom .3s 0s, transform .3s .3s, background-color .3s .3s;
       }
     }
   }
