@@ -1,0 +1,18 @@
+/* Media Query Mixins */
+@mixin mediaQueryMin($minw) {
+  @media (min-width: $minw) {
+    @content
+  }
+};
+
+@mixin mediaQueryMax($maxw) {
+  @media (max-width: $maxw) {
+    @content
+  }
+};
+
+@mixin mediaQueryMinMax($mmminw, $mmmaxw) {
+  @media (min-width: $mmminw) and (max-width: $mmmaxw) {
+    @content
+  }
+};
