@@ -2,6 +2,10 @@
   display: flex;
   flex-flow: row wrap;
 
+  &:not(:last-child){
+    margin-bottom: 40px;
+  }
+
   .p-grid__col {
     flex: 1;
 
