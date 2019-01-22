@@ -40,6 +40,9 @@
       display: block;
       .p-nav__list-item{
         margin-bottom: 20px;
+        a{
+          color: $brand-color--light-grey;
+        }
       }
     }
   }
