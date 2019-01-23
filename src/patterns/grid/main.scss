@@ -14,6 +14,9 @@
         padding: 0 20px 0 0;
       }
     }
+
+    /*Col width*/
+
     @for $col from 1 through 12 {
 
       &.p-grid__col--sm-#{$col} {
@@ -40,6 +43,72 @@
       &.p-grid__col--xl-#{$col} {
         @include mediaQueryMin($mq_breakpoint--xl) {
           width: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+    }
+
+    /*Offset left*/
+
+    @for $col from 1 through 12 {
+
+      &.p-grid__offset-left--sm-#{$col} {
+        @include mediaQueryMax($mq_breakpoint--sm) {
+          margin-left: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-left--md-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--sm) {
+          margin-left: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-left--lg-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--lg) {
+          margin-left: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-left--xl-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--xl) {
+          margin-left: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+    }
+
+    /*Offset right*/
+
+    @for $col from 1 through 12 {
+
+      &.p-grid__offset-right--sm-#{$col} {
+        @include mediaQueryMax($mq_breakpoint--sm) {
+          margin-right: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-right--md-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--sm) {
+          margin-right: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-right--lg-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--lg) {
+          margin-right: percentage(1/$col);
+          flex: inherit;
+        };
+      }
+
+      &.p-grid__offset-right--xl-#{$col} {
+        @include mediaQueryMin($mq_breakpoint--xl) {
+          margin-right: percentage(1/$col);
           flex: inherit;
         };
       }
