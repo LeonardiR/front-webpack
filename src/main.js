@@ -16,3 +16,4 @@ import 'Assets/fonts/MaisonNeue-BookItalic.ttf';
 import 'Assets/fonts/MaisonNeue-BookItalic.woff2';
 import 'Assets/fonts/MaisonNeue-BookItalic.woff2';
 import 'Assets/img/html.jpg';
+import 'Assets/img/bg-image.jpg';
