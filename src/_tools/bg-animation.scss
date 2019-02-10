@@ -1,6 +1,7 @@
 .bg-anim{
+  background-color: #a3c5cb;
   .bg-anim__img{
-    transition: opacity .5s;
+    transition: opacity .7s;
     background: url(assets/img/bg-image.jpg) no-repeat center;
     background-size: cover;
     opacity: 1;
@@ -9,7 +10,7 @@
     height: 100%;
     z-index: -1;
   }
-  &.bg-anim--color-1{
+  &.anim--color-1{
     background-color: #a3c5cb;
     transition: background-color .5s;
     background-image: none;
@@ -18,7 +19,7 @@
       transition: opacity .5s;
     }
   }
-  &.bg-anim--color-2{
+  &.anim--color-2{
     background-color: #885f5e;
     transition: background-color .5s;
     background-image: none;
@@ -27,7 +28,7 @@
       transition: opacity .5s;
     }
   }
-  &.bg-anim--color-3{
+  &.anim--color-3{
     background-color: #002155;
     transition: background-color .5s;
     background-image: none;
