@@ -3,11 +3,11 @@
    var  viewportHeight = window.innerHeight,
         lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop,
         ticking = false;
-    function AnimationBg() {
+
+   function AnimationBg() {
         this.animBgElement = document.querySelector('.bg-anim');
         this.animBgElementRef = document.querySelectorAll('.bg-anim__ref');
         this.animationClassPrefix = new RegExp('\\b' + 'anim--color-' + '(.*)?\\b', 'g').toString().replace(/[|/&\[\]\\;$%@"bg<>()+,*.?]/g, "");
-
     }
 
     AnimationBg.prototype.addAnimationBg = function (currentRefEl, direction)  {
@@ -15,7 +15,6 @@
             currentElIndex = elDataAtt.match(/\d/g).join(''),
             previousIndex,
             currentElIndexInt = parseInt(currentElIndex);
-            console.log(currentElIndex);
         if(currentElIndex !== '0'){
             this.animBgElement.classList.add(this.animationClassPrefix + currentElIndex);
         }
