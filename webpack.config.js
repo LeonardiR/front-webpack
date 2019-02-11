@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const glob = require('glob');
 module.exports = {
@@ -54,7 +55,8 @@ module.exports = {
                             },
                             sourceMap: isDevelopment,
                             plugins: () => [
-                                autoprefixer({ grid: true })
+                                autoprefixer({ grid: true }),
+                                cssnano({ preset: 'default' })
                             ]
                         },
                     },
