@@ -19,16 +19,9 @@
         if(currentElIndex !== '0'){
             this.animBgElement.classList.add(this.animationClassPrefix + currentElIndex);
         }
-
-        if(direction === 'down'){
-            currentElIndexInt = parseInt(currentElIndex);
-            previousIndex = currentElIndexInt - 1;
-
-            this.animBgElement.classList.remove(this.animationClassPrefix + previousIndex);
-        }else if (direction === 'up') {
+        if (direction === 'up') {
             currentElIndexInt = parseInt(currentElIndex);
             previousIndex = currentElIndexInt + 1;
-
             this.animBgElement.classList.remove(this.animationClassPrefix + previousIndex);
         }else if(currentElIndex === '0'){
             this.animBgElement.classList.remove(this.animationClassPrefix+'1');
