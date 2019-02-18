@@ -1,3 +1,5 @@
 .parallax__el{
-  transition: transform .7s ease-out;
+transition: transform .7s cubic-bezier(.01,.06,0,.99);
+  transform-origin: 50% 50%;
+  opacity: 0;
 }
