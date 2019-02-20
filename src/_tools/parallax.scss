@@ -1,5 +1,7 @@
 .parallax__el{
-transition: transform .7s cubic-bezier(.01,.06,0,.99);
-  transform-origin: 50% 50%;
+  transition: transform .7s cubic-bezier(.01,.06,0,.89);
   opacity: 0;
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    transition: none;
+  }
 }

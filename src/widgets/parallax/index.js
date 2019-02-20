@@ -9,15 +9,20 @@
         this.parallaxEl = document.querySelectorAll('.parallax__el');
     }
 
-    Parallax.prototype.setElementTranslateY = function(){
+    Parallax.prototype.setElementTranslateY = function(viewportTop, viewportBottom){
         for(var i = 0; this.parallaxEl.length > i; i++) {
-            this.parallaxEl[i].style.transform = "translateY(250px)";
+            var animationElementTop = this.parallaxEl[i].getBoundingClientRect().top + viewportTop;
+            if(animationElementTop < viewportTop){
+                this.parallaxEl[i].style.transform = "translate3d(0px, -250px, -1px)";
+            }else if(animationElementTop > viewportBottom) {
+                this.parallaxEl[i].style.transform = "translate3d(0px, 250px, -1px)";
+            }
         }
     };
 
     Parallax.prototype.runAnimationParallax = function (currentRefEl, direction, animationElementMd )  {
         var transformPx = animationElementMd/3;
-        currentRefEl.style.transform = "translateY("+ transformPx +"px)";
+        currentRefEl.style.transform = "translate3d(0px, "+ transformPx +"px, -1px)";
         currentRefEl.style.opacity = '1';
 
     };
@@ -55,6 +60,6 @@
             lastScrollPosition = currentScrollPosition;
         });
     }
-    parallax.setElementTranslateY();
+    parallax.setElementTranslateY(lastScrollPosition, lastScrollPosition + viewportHeight);
     window.addEventListener('scroll', initParallax);
 })();
