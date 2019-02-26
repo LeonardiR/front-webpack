@@ -125,7 +125,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(helpers.root(), {} ),
+        new CleanWebpackPlugin(helpers.root('dist'), { root: helpers.root(), verbose: true } ),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
