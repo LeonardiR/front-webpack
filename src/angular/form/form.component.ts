@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-form',
+    selector: 'a-form',
     templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit {
-    public pageTitle = 'Login';
+    public title = 'Form';
     public form: FormGroup;
 
     constructor(private fb: FormBuilder) {

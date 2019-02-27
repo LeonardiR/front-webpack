@@ -9,7 +9,8 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["es6", "dom"],
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["../../node_modules/@types"]
   },
-  "exclude": ["node_modules", "src/angular/main.aot.ts"]
+  "exclude": [
+    "../../node_modules", "main.aot.ts"]
 }

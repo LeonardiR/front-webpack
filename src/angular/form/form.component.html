@@ -1,5 +1,8 @@
-<form [formGroup]="form">
-    <input formControlName="username" type="text" matInput placeholder="Nombre de usuario">
-    <input formControlName="password" type="password" matInput placeholder="Contraseña">
-    <button [disabled]="!form.valid" type="submit" (click)="submitForm()" mat-raised-button color="primary">Entrar</button>
-</form>
+<div class="a-form">
+    <h2>{{title}}</h2>
+    <form [formGroup]="form">
+        <input formControlName="username" type="text" matInput placeholder="Nombre de usuario">
+        <input formControlName="password" type="password" matInput placeholder="Contraseña">
+        <button [disabled]="!form.valid" type="submit" (click)="submitForm()" mat-raised-button color="primary">Submit</button>
+    </form>
+</div>

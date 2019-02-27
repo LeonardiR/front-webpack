@@ -17,7 +17,7 @@ module.exports = webpackMerge(commonConfig, {
 
     plugins: [
         new ngw.AngularCompilerPlugin({
-            tsConfigPath: helpers.root('tsconfig.aot.json'),
+            tsConfigPath: helpers.root('src/angular/tsconfig.aot.json'),
             entryModule: helpers.root('src', 'angular', 'form.module#FormModule')
         })
     ]
