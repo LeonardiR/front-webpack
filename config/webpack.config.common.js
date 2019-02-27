@@ -84,7 +84,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'assets',
+                            outputPath: 'assets/fonts',
                             useRelativePath: true
                         }
                     }
@@ -97,7 +97,7 @@ module.exports = {
                         loader: "file-loader",
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'assets',
+                            outputPath: 'assets/img',
                             useRelativePath: true
                         }
                     },
@@ -121,11 +121,24 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+                // Removing this will cause deprecation warnings to appear.
+                test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+                parser: { system: true },  // enable SystemJS
             }
         ]
     },
     plugins: [
         new CleanWebpackPlugin(helpers.root('dist'), { root: helpers.root(), verbose: true } ),
+        // Workaround for Critical dependency
+        // The request of a dependency is an expression in ./node_modules/@angular/core/fesm5/core.js
+        new webpack.ContextReplacementPlugin(
+            /\@angular(\\|\/)core(\\|\/)fesm5/,
+            helpers.root('src'),
+            {}
+        ),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
