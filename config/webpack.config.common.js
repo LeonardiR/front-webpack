@@ -10,9 +10,6 @@ const glob = require('glob');
 console.log(isDevelopment);
 module.exports = {
     entry: {
-        vendor: './src/angular/vendor.ts',
-        polyfills: './src/angular/polyfills.ts',
-        angular: isDevelopment ? './src/angular/main.ts' : './src/angular/main.aot.ts',
         main:'./src/main.js',
         landing: './src/templates/landing/landing.js',
         page: './src/templates/page/page.js'
@@ -25,7 +22,7 @@ module.exports = {
         extensions: ['.ts', '.js'],
         alias: {
             Widgets: helpers.root('src/widgets'),
-            Assets: helpers.root('src/assets'),
+            Assets: helpers.root('src/assets')
         }
     },
     devtool: isDevelopment && "source-map",
