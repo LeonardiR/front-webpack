@@ -11,7 +11,7 @@ module.exports = {
     entry: {
         main:'./src/main.js',
         landing: './src/templates/landing/landing.js',
-        page: './src/templates/page/page.js'
+        page: './src/templates/page/page.js',
     } ,
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -21,7 +21,8 @@ module.exports = {
         alias: {
             Widgets: path.resolve(__dirname, 'src/widgets'),
             Assets: path.resolve(__dirname, 'src/assets')
-        }
+        },
+        extensions: [".ts", ".js"]
     },
     devtool: isDevelopment && "source-map",
     devServer: {
@@ -36,6 +37,20 @@ module.exports = {
                 options: {
                     partialDirs: [path.resolve(__dirname, 'src')].concat(glob.sync('**/', { cwd: path.resolve(__dirname, 'src'), realpath: true }))
                 }
+            },
+            {
+                test: /\.ts$/,
+                loaders: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                    },
+                ],
+                exclude: [/node_modules/]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: ['babel-loader']
             },
             {
                 test: /\.(scss|css)$/,
