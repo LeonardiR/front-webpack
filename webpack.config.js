@@ -22,7 +22,7 @@ module.exports = {
             Widgets: path.resolve(__dirname, 'src/widgets'),
             Assets: path.resolve(__dirname, 'src/assets')
         },
-        extensions: [".ts", ".js"]
+        extensions: [".ts", ".tsx", ".js"]
     },
     devtool: isDevelopment && "source-map",
     devServer: {
@@ -39,7 +39,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 loaders: [
                     {
                         loader: 'awesome-typescript-loader',
