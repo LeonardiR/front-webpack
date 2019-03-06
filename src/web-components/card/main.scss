@@ -1,0 +1,7 @@
+.c-card{
+  box-shadow: 0 0 42px 0 rgba(0,0,0,0.14);
+  padding: 50px;
+  &:not(:last-child){
+    margin-bottom: 20px;
+  }
+}

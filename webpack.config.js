@@ -20,6 +20,7 @@ module.exports = {
     resolve: {
         alias: {
             Widgets: path.resolve(__dirname, 'src/widgets'),
+            Wcomponents: path.resolve(__dirname, 'src/web-components'),
             Assets: path.resolve(__dirname, 'src/assets')
         },
         extensions: [".ts", ".tsx", ".js"]
@@ -39,6 +40,28 @@ module.exports = {
                 }
             },
             {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules\/(?!(@webcomponents\/shadycss|lit-html|@polymer|@vaadin|@lit)\/).*/,
+                options: {
+                    presets: [
+                        [
+                            '@babel/preset-env',
+                            {
+                                targets: {
+                                    browsers: [
+                                        'last 2 versions'
+                                    ]
+                                },
+                                modules: false
+                            }
+                        ],
+
+                        '@babel/preset-react'
+                    ],
+                },
+            },
+            {
                 test: /\.tsx?$/,
                 loaders: [
                     {
@@ -46,11 +69,6 @@ module.exports = {
                     },
                 ],
                 exclude: [/node_modules/]
-            },
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
             },
             {
                 test: /\.(scss|css)$/,
