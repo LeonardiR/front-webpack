@@ -8,6 +8,7 @@
 
   .p-grid__col {
     flex: 1;
+    box-sizing: border-box;
 
     &:not(:last-child){
       @include mediaQueryMin($mq_breakpoint--sm) {
