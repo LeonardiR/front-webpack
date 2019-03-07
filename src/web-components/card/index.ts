@@ -1,7 +1,7 @@
 /**
  * Card component dependencies
  */
-import { html, render} from 'lit-html';
+import { html, render,} from 'lit-html';
 import { repeat } from "lit-html/directives/repeat";
 
 import { UserService } from "../../services";
