@@ -1,0 +1,53 @@
+.slide-screen{
+  .slide-screen__item{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transition: transform 500ms ease-in;
+    &.up{
+      transform: translate(0, -100%);
+      z-index: 1;
+    }
+    &.left{
+      transform: translate(-100%, 0);
+      z-index: 1;
+    }
+    &.down{
+      transform: translate(0, 100%);
+      z-index: 1;
+    }
+    &.right{
+      transform: translate(100%, 0);
+      z-index: 1;
+    }
+    &.visible{
+      transform: none;
+    }
+  }
+  .screen-cta{
+    cursor: pointer;
+    position: absolute;
+    &.screen-cta--down{
+      bottom: 20px;
+      left: 50%;
+      transform: translate(-50%, 0);
+     }
+    &.screen-cta--up{
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    &.screen-cta--left{
+      left: 20px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &.screen-cta--right{
+      right: 20px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+}

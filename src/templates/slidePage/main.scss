@@ -1,0 +1,24 @@
+@import "../../widgets/slideScreen/main";
+
+.center-element{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.landing{
+  background-color: white;
+}
+.contact{
+  background-color: black;
+
+}
+.mision{
+  background-color: blue;
+}
+.services{
+  background-color: chartreuse;
+}
+.principles{
+  background-color: orangered;
+}

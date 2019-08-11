@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
@@ -11,7 +11,8 @@ module.exports = {
     entry: {
         main:'./src/main.js',
         landing: './src/templates/landing/landing.js',
-        page: './src/templates/page/page.js'
+        page: './src/templates/page/page.js',
+        slidePage: './src/templates/slidePage',
     } ,
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -116,7 +117,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('dist', {} ),
+        new CleanWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
@@ -137,10 +138,19 @@ module.exports = {
             },
         }),
         new HtmlWebpackPlugin({
-            title: 'This is a avergage Page',
+            title: 'This is a average Page',
             filename: 'page/index.html',
             template: './src/templates/page/t-page.hbs',
             chunks: ['main','page'],
+            minify: !isDevelopment && {
+                html5: true
+            },
+        }),
+        new HtmlWebpackPlugin({
+            title: 'This is the Slide Page',
+            filename: 'slider-page/index.html',
+            template: './src/templates/slidePage/template.hbs',
+            chunks: ['main','slidePage'],
             minify: !isDevelopment && {
                 html5: true
             },
