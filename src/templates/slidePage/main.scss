@@ -6,6 +6,12 @@
   justify-content: center;
   height: 100%;
 }
+.slide-screen__item{
+  color:white;
+  &.landing{
+    color: black;
+  }
+}
 .landing{
   background-color: white;
 }
@@ -15,9 +21,14 @@
 }
 .mision{
   background-color: blue;
+  .mision__content{
+    max-width: 900px;
+    margin: 0 auto;
+    height: auto;
+  }
 }
 .services{
-  background-color: chartreuse;
+  background-color: purple;
 }
 .principles{
   background-color: orangered;
