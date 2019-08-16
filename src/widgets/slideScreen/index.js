@@ -7,9 +7,14 @@
                 this.cta[i].addEventListener('click', function (e) {
                     slideScreen.hideScreens();
                     var id = e.target.getAttribute('data-screen'),
-                        screen = document.getElementById(id);
+                        screen = document.getElementById(id),
+                        currentScreen = e.target.closest('.slide-screen__item');
                     if(id !== 'screen-main'){
                         screen.classList.add('visible');
+                        currentScreen.classList.add('animating');
+                        screen.addEventListener('transitionend', function () {
+                            currentScreen.classList.remove('animating');
+                        })
                     }
                 });
             }
