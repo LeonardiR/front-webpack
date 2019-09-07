@@ -1,10 +1,10 @@
 import { ajax } from 'rxjs/ajax';
 
-export class UserService {
+export class ChartService {
 
-private apiUrl = 'https://5be2c0e0d53daf0013250eb5.mockapi.io/api/v1';
+private apiUrl = '//5d73c8cf214da600148f5b70.mockapi.io/api/v1';
     constructor(){}
-    getUsers() {
-            return ajax.get(`${this.apiUrl}/users`)
+    getChart() {
+            return ajax.get(`${this.apiUrl}/chart`)
     };
 }

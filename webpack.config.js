@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
@@ -12,7 +12,13 @@ module.exports = {
         main:'./src/main.js',
         landing: './src/templates/landing/landing.js',
         page: './src/templates/page/page.js',
+        charts: './src/templates/charts/charts.js',
     } ,
+    externals: {
+        googleCharts: 'google.charts',
+        googleVisualization: 'google.visualization'
+
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].js'
@@ -40,26 +46,21 @@ module.exports = {
                 }
             },
             {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules\/(?!(@webcomponents\/shadycss|lit-html|@polymer|@vaadin|@lit)\/).*/,
-                options: {
-                    presets: [
-                        [
-                            '@babel/preset-env',
-                            {
-                                targets: {
-                                    browsers: [
-                                        'last 2 versions'
-                                    ]
-                                },
-                                modules: false
-                            }
+                test: /\.m?js$/,
+                exclude: /node_modules\/(?!(load-google-maps-api|@webcomponents\/shadycss|lit-html|lit-element|pwa-helpers|@polymer|@vaadin|@lit)\/).*/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['@babel/plugin-syntax-dynamic-import'],
+                        presets: [
+                            ['@babel/preset-env',{
+                                useBuiltIns: "usage",
+                                corejs: 3,
+                            }],
+                            '@babel/preset-react'
                         ],
-
-                        '@babel/preset-react'
-                    ],
-                },
+                    }
+                }
             },
             {
                 test: /\.tsx?$/,
@@ -149,7 +150,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('dist', {} ),
+        new CleanWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
@@ -174,6 +175,16 @@ module.exports = {
             filename: 'page/index.html',
             template: './src/templates/page/t-page.hbs',
             chunks: ['main','page'],
+            minify: !isDevelopment && {
+                html5: true
+            },
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Charts examples',
+            externals:'https://www.gstatic.com/charts/loader.js',
+            filename: 'charts/index.html',
+            template: './src/templates/charts/t-charts.hbs',
+            chunks: ['main','charts'],
             minify: !isDevelopment && {
                 html5: true
             },
