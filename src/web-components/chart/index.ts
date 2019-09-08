@@ -19,7 +19,7 @@ export class ChartComponent extends LitElement {
 
     }
 
-    renderChart(data: []) {
+    renderChart(data:any) {
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart);
         function drawChart() {
@@ -27,11 +27,20 @@ export class ChartComponent extends LitElement {
 
             const options = {
                 chart: {
-                    title: 'Company Performance',
-                    subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-                }
+                    title: 'Savar',
+                    subtitle: 'Factory Income | Median Factory Savar | Median Factory Helper'
+                },
+                colors: ['#1b9e77', '#d95f02', '#7570b3']
             };
             const chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+            function selectHandler() {
+                var selectedItem = chart.getSelection()[0];
+                console.log(selectedItem);
+            }
+
+            // Listen for the 'select' event, and call my function selectHandler() when
+            // the user selects something on the chart.
+            google.visualization.events.addListener(chart, 'select', selectHandler);
             chart.draw(dataChart, google.charts.Bar.convertOptions(options));
         }
     }
@@ -39,6 +48,7 @@ export class ChartComponent extends LitElement {
     getChartData() {
         this.chartService.getChart().subscribe((res: any) => {
                 this.chartData = res.response[0].data;
+                console.log(this.chartData)
                 this.renderChart(this.chartData);
             },
             err => {
