@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
@@ -35,6 +35,23 @@ module.exports = {
                 loader: "handlebars-loader",
                 options: {
                     partialDirs: [path.resolve(__dirname, 'src')].concat(glob.sync('**/', { cwd: path.resolve(__dirname, 'src'), realpath: true }))
+                }
+            },
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['@babel/plugin-syntax-dynamic-import'],
+                        presets: [
+                            ['@babel/preset-env',{
+                                useBuiltIns: "usage",
+                                corejs: 3,
+                            }],
+                            '@babel/preset-react'
+                        ],
+                    }
                 }
             },
             {
@@ -116,7 +133,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin('dist', {} ),
+        new CleanWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             options: {
                 handlebarsLoader: {}
