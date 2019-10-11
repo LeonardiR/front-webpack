@@ -30,7 +30,7 @@ resizeIframe.init();
 * <script type="text/javascript">
 		(function() {
 			setInterval(function() {
-            	window.top.postMessage(document.body.scrollHeight, "http://localhost:3000/");
+            	window.top.postMessage(document.body.scrollHeight, "*");
             }, 60);
 		})();
 	</script>
