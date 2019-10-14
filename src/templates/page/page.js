@@ -21,7 +21,6 @@ class ResizeIframe  {
 
     init() {
         if(this.isIframe) {
-            console.log('is iframe');
             this.setIframeHeight();
         }
     }
