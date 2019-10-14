@@ -9,7 +9,7 @@
                     <img src="/assets/img/html.jpg"/>
                 </div>
             {{/p-grid}}
-            <iframe id="iframe-test" onload="(function(){window.addEventListener('message', (e) => {document.querySelector('#iframe-test').style.height = e.data + 'px';}, false);})()" style="width: 100%; overflow: hidden; border: none;" src="http://localhost:2859/payment/default4.aspx?booknum=3888975&downPayment=0&totalPayment=48300"></iframe>
+            <iframe id="iframe-test" onload="(function(){console.log(this); window.addEventListener('message', (e) => {document.querySelector('#iframe-test').style.height = e.data + 'px';}, false);})()" style="width: 100%; overflow: hidden; border: none;" src="http://localhost:2859/payment/default4.aspx?booknum=3888975&downPayment=0&totalPayment=48300"></iframe>
             <!--<iframe width="100%" src="page"></iframe>-->
         {{/c-main}}
         {{> c-footer}}
