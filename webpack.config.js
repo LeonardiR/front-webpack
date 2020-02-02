@@ -147,3 +147,17 @@ module.exports = {
         })
     ]
 };
+var fs = require('fs');
+var directory = __dirname + '/src/_config';
+function getDirectories(path) {
+    fs.readdir(path, function(err, content) {
+        if (err) {
+            console.log(err);
+            return err;
+        } else {
+            console.log(content);
+        }
+    });
+}
+
+getDirectories(directory);
